@@ -1,12 +1,12 @@
 import { Link } from 'react-router-dom';
-const CardComponent = ({ product, Detail }) => {
+const CardComponent = ({ product, agregarAlCarrito, Detail }) => {
 	return (
 		<div className='card align-items-center col-3 ' key={product.id}>
 			<div>
 				<img
-					src='https://th.bing.com/th/id/OIP.wx6m-Q7_gg4ZTJfVuVHdxgHaHa?pid=ImgDet&rs=1'
+					src={product.thumbnail}
 					className='card-img-top'
-					alt='Imagen del producto'
+					alt={product.title}
 				/>
 			</div>
 			<div></div>
@@ -16,16 +16,24 @@ const CardComponent = ({ product, Detail }) => {
 					{product.title} <strong>$ {product.price}</strong>
 				</p>
 				<p> </p>
-				<Link to={`/detail/${product.id}`}>
+				<Link to={`/detalle/${product.id}`}>
 					<button
 						className='btn btn-primary '
 						onClick={() => {
 							Detail();
 						}}
 					>
-						Detail
+						Detalle
 					</button>
 				</Link>
+				<button
+					className='btn btn-primary'
+					onClick={(event) => {
+						agregarAlCarrito(event, product);
+					}}
+				>
+					Agregar
+				</button>
 			</div>
 		</div>
 	);

@@ -4,10 +4,23 @@ import HomeContainer from './containers/HomeContainer';
 import ProductsContainer from './containers/ProductsContainer';
 import DetailContainer from './containers/DetailProductContainer';
 import { CartProvider } from './context/CartContext';
+import { useDispatch, useSelector } from 'react-redux';
+import { addElementToCart } from './redux/actions/cart';
+import CartContainer from './containers/CartContainer';
 
-function App() {
+const App = () => {
+	const STATE = useSelector((state) => state.cartReducer);
+	const dispatch = useDispatch();
+	console.log(STATE);
 	return (
 		<div className='App'>
+			{/* <button
+				onClick={() => {
+					dispatch(addElementToCart({ id: 1, name: 'shirt', price: 3000 }));
+				}}
+			>
+				Agregar al carrito
+			</button> */}
 			<link
 				href='https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css'
 				rel='stylesheet'
@@ -23,13 +36,18 @@ function App() {
 				<CartProvider>
 					<Switch>
 						<Route exact path='/' component={HomeContainer} />
-						<Route exact path='/products' component={ProductsContainer} />
-						<Route exact path='/detail/:id' component={DetailContainer} />
+						<Route exact path='/productos' component={ProductsContainer} />
+						<Route exact path='/detalle/:id' component={DetailContainer} />
+						<Route exact path='/carrito' component={CartContainer} />
+						<Route
+							path='/productos/:busqueda'
+							component={ProductsContainer}
+						></Route>
 					</Switch>
 				</CartProvider>
 			</BrowserRouter>
 		</div>
 	);
-}
+};
 
 export default App;

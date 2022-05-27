@@ -1,10 +1,13 @@
 import { Link } from 'react-router-dom';
+import { useContext } from 'react';
+import { CartContext } from '../context/CartContext';
+const NavBarComponent = ({ handleKeyUp, children, searchBar }) => {
+	const { carrito } = useContext(CartContext);
 
-const NavBarComponent = () => {
 	return (
 		<nav class=' col navbar navbar-expand-lg navbar-light bg-light'>
 			<div class='container-fluid'>
-				<a class='navbar-brand'>React</a>
+				<a class='navbar-brand'>Catalogo Virtual</a>
 				<button
 					class='navbar-toggler'
 					type='button'
@@ -19,26 +22,40 @@ const NavBarComponent = () => {
 				<div class='collapse navbar-collapse' id='navbarSupportedContent'>
 					<ul class='navbar-nav me-auto mb-2 mb-lg-0'>
 						<li class='nav-item'>
-							<a class='nav-link active' aria-current='page' href='#'>
-								<Link to={'/'}>Home</Link>
-							</a>
+							<div class='btn-group'>
+								<Link to={'/'}>
+									<button className='btn btn-primary'>Inicio</button>
+								</Link>
+								<Link to={'/productos'}>
+									<button className='btn btn-primary'>Productos</button>
+								</Link>
+								{/* <input
+									type='text'
+									onInput={handleKeyUp}
+									placeholder='Buscar por nombre'
+								/> */}
+								<Link to={'/carrito'}>
+									<button type='button' class='btn btn-primary'>
+										Items agregados{' '}
+										<span class='badge text-bg-secondary'>
+											{carrito.length}
+										</span>
+										{children}
+									</button>
+								</Link>
+							</div>
 						</li>
-						<li class='nav-item'>
-							<a class='nav-link' href='#'>
-								<Link to={'/products'}>Products</Link>
-							</a>
-						</li>
+						<li class='nav-item'></li>
 					</ul>
 					<form class='d-flex'>
 						<input
-							class='form-control me-2'
+							className='form-control me-2'
 							type='search'
-							placeholder='Search'
+							placeholder='Buscar productos'
 							aria-label='Search'
+							id='Search'
+							onInput={searchBar}
 						/>
-						<button class='btn btn-outline-success' type='submit'>
-							Search
-						</button>
 					</form>
 				</div>
 			</div>
