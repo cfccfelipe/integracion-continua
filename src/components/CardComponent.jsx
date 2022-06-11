@@ -13,7 +13,7 @@ const CardComponent = ({ product, agregarAlCarrito, Detail }) => {
 
 			<div className='card-body'>
 				<p className='card-text'>
-					{product.title} <strong>$ {product.price}</strong>
+					{product.title} <strong>$ p{product.price}</strong>
 				</p>
 				<p> </p>
 				<Link to={`/detalle/${product.id}`}>
