@@ -39,8 +39,8 @@ const App = () => {
 			<BrowserRouter>
 				<CartProvider>
 					<Switch>
-						<Route exact path='/' component={HomeContainer} />
-						<Route exact path='/login' component={LogIn} />
+						<Route exact path='/home' component={HomeContainer} />
+						<Route exact path='/' component={LogIn} />
 						<Route exact path='/register' component={Register} />
 						<Route exact path='/productos' component={ProductsContainer} />
 						<Route exact path='/detalle/:id' component={DetailContainer} />
