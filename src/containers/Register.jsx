@@ -42,7 +42,7 @@ const Register = () => {
 							id='exampleInputPassword1'
 						/>
 					</div>
-					<Link to={'/login'}>
+					<Link to={'/'}>
 						<button type='submit' class='btn btn-primary'>
 							Guardar
 						</button>
