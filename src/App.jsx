@@ -7,6 +7,10 @@ import { CartProvider } from './context/CartContext';
 import { useDispatch, useSelector } from 'react-redux';
 import { addElementToCart } from './redux/actions/cart';
 import CartContainer from './containers/CartContainer';
+import AdvanceSearch from './containers/AdvanceSearch';
+import ProductsCategory from './containers/ProductsCategory';
+import LogIn from './containers/LogIn';
+import Register from './containers/Register';
 
 const App = () => {
 	const STATE = useSelector((state) => state.cartReducer);
@@ -36,8 +40,12 @@ const App = () => {
 				<CartProvider>
 					<Switch>
 						<Route exact path='/' component={HomeContainer} />
+						<Route exact path='/login' component={LogIn} />
+						<Route exact path='/register' component={Register} />
 						<Route exact path='/productos' component={ProductsContainer} />
 						<Route exact path='/detalle/:id' component={DetailContainer} />
+						<Route exact path='/search' component={AdvanceSearch} />
+						<Route exact path='/search/:id' component={ProductsCategory} />
 						<Route exact path='/carrito' component={CartContainer} />
 						<Route
 							path='/productos/:busqueda'

@@ -1,7 +1,7 @@
 import { Link } from 'react-router-dom';
 import { useContext } from 'react';
 import { CartContext } from '../context/CartContext';
-const NavBarComponent = ({ handleKeyUp, children, searchBar }) => {
+const NavBarCompNoSearch = ({ children }) => {
 	const { carrito } = useContext(CartContext);
 
 	return (
@@ -45,22 +45,11 @@ const NavBarComponent = ({ handleKeyUp, children, searchBar }) => {
 						</li>
 						<li class='nav-item'></li>
 					</ul>
-					<form class='d-flex'>
-						<input
-							className='form-control me-2'
-							type='search'
-							placeholder='Buscar productos'
-							aria-label='Search'
-							id='Search'
-							onInput={searchBar}
-						/>
-						<div class='btn btn-primary'>
-							<span class='badge text-bg-secondary'>
-								Items {carrito.length}
-							</span>
-							{children}
-						</div>
-					</form>
+
+					<div class='btn btn-primary'>
+						<span class='badge text-bg-secondary'>Items {carrito.length}</span>
+						{children}
+					</div>
 					<Link to={'/login'}>
 						<button type='button' class='btn btn-primary'>
 							Cerrar Sesión
@@ -73,4 +62,4 @@ const NavBarComponent = ({ handleKeyUp, children, searchBar }) => {
 	);
 };
 
-export default NavBarComponent;
+export default NavBarCompNoSearch;

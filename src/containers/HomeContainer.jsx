@@ -2,11 +2,15 @@ import NavBarComponent from '../components/NavBarComponent';
 import { useContext } from 'react';
 import { Link } from 'react-router-dom';
 import { CartContext } from '../context/CartContext';
+import NavBarCompNoSearch from '../components/NavBarCompNoSearch';
 
 const HomeContainer = () => {
 	const { carrito } = useContext(CartContext);
 	return (
 		<div className='container'>
+			<div className='row'>
+				<NavBarCompNoSearch carrito={carrito} />
+			</div>
 			<div className='row'>
 				<h1>Bienvenido a tu catalogo virtual</h1>
 				<h2>Tu carrito tiene {carrito.length} productos</h2>
