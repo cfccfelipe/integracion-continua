@@ -36,7 +36,7 @@ const LogIn = () => {
 							id='exampleInputPassword1'
 						/>
 					</div>
-					<Link to={'/'}>
+					<Link to={'/home'}>
 						<button type='submit' class='btn btn-primary'>
 							Iniciar sesión
 						</button>
