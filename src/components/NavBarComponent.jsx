@@ -23,7 +23,7 @@ const NavBarComponent = ({ handleKeyUp, children, searchBar }) => {
 					<ul class='navbar-nav me-auto mb-2 mb-lg-0'>
 						<li class='nav-item'>
 							<div class='btn-group'>
-								<Link to={'/'}>
+								<Link to={'/home'}>
 									<button className='btn btn-primary'>Inicio</button>
 								</Link>
 								<Link to={'/productos'}>
